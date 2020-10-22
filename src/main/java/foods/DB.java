@@ -33,7 +33,7 @@ public class DB {
             conn = DriverManager.getConnection(url, userName, password);
             System.out.println("A kapcsolat létrejött");
             System.out.println("===============================================");
-            findMilk();
+            findSourceId();
         } catch (SQLException ex) {
             System.out.println("Nincs kapcsolat az adatbázissal");
             System.out.println("" + ex);
@@ -76,6 +76,30 @@ public class DB {
         try {
             String column1 = "id", column2 = "source_type";
             query = "SELECT " + column1 + ", " + column2 + " FROM contents LIMIT 3";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            System.out.println(column1 + "|" + column2);
+            while (rs.next()) {
+                System.out.print(rs.getString(column1));
+                System.out.print("|");
+                System.out.println(rs.getString(column2));
+            }
+            System.out.println("===============================================");
+        } catch (SQLException ex) {
+            Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void findSourceId() {
+        
+        try {
+            String column1 = "source_id", column2 = "orig_source_name";
+            query = "SELECT DISTINCT " + column1 + ", " + column2 
+            		+ " FROM contents "
+            		+ "WHERE source_id IS NOT NULL "
+            		+ "AND orig_source_name IS NOT NULL "
+            		+ "ORDER BY source_id "
+            		+ "LIMIT 1000";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             System.out.println(column1 + "|" + column2);
