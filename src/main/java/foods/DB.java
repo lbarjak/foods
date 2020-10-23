@@ -21,12 +21,8 @@ public class DB {
 
 	@Autowired
 	private Environment env;
-	
-	@Autowired
-    private JdbcTemplate jdbcTemplate;
 
 	Connection conn = null;
-	String query;
 
 	@PostConstruct
 	public void onStartUp() {
@@ -43,17 +39,6 @@ public class DB {
 			System.out.println("Nincs kapcsolat az adatbázissal");
 			System.out.println("" + ex);
 		}
-		
-//		DataSource ds = jdbcTemplate.getDataSource();
-//		    String sql = "SELECT * FROM CUSTOMER";
-//
-//		    jdbcTemplate.query(
-//		            sql,
-//		            (rs, rowNum) ->
-//		                    System.out.prinln(rs, rowNum)
-//		    );
-
-
 	}
 
 	public ArrayList<ArrayList<String>> find(String query) {
