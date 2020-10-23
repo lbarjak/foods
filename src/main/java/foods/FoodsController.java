@@ -11,7 +11,7 @@ public class FoodsController {
 	private DB db;
 
 	@Autowired
-	public void setStoryService(DB db) {
+	public void inject(DB db) {
 		this.db = db;
 	}
 

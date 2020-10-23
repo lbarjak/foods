@@ -8,7 +8,6 @@ public class FoodsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FoodsApplication.class, args);
-		new DB();
 	}
 
 }

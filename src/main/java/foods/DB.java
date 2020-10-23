@@ -14,12 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Repository
 public class DB {
 
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
 
 	Connection conn = null;
 	String query;
@@ -39,6 +43,16 @@ public class DB {
 			System.out.println("Nincs kapcsolat az adatbázissal");
 			System.out.println("" + ex);
 		}
+		
+//		DataSource ds = jdbcTemplate.getDataSource();
+//		    String sql = "SELECT * FROM CUSTOMER";
+//
+//		    jdbcTemplate.query(
+//		            sql,
+//		            (rs, rowNum) ->
+//		                    System.out.prinln(rs, rowNum)
+//		    );
+
 
 	}
 
