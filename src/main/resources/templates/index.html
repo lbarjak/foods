@@ -1,1 +1,13 @@
-Nincs itt semmi látnivaló
+<!doctype html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Foods</title>
+</head>
+<body>
+<!-- 	<p th:text="${access}">query</p> -->
+	<article th:each="row : ${access}">
+		<p th:text="${row}">query</p>
+	</article>
+</body>
+</html>
