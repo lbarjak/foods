@@ -9,12 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 @Repository
 public class DB {
@@ -29,8 +29,6 @@ public class DB {
 		String url = env.getProperty("spring.datasource.url");
 		String userName = env.getProperty("spring.datasource.username");
 		String password = env.getProperty("spring.datasource.password");
-		// String validationQuery =
-		// env.getProperty("spring.datasource.validation-query");
 
 		try {
 			conn = DriverManager.getConnection(url, userName, password);

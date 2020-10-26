@@ -1,13 +1,19 @@
-<!doctype html>
-<html lang="hu" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>Foods</title>
-</head>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
 <body>
-<!-- 	<p th:text="${access}">query</p> -->
-	<article th:each="row : ${access}">
-		<p th:text="${row}">query</p>
-	</article>
+	<h2>SQL Queries</h2>
+	<h3>Enter your query:</h3>
+	<form action="/" method="post">
+		Query: <input name="query" value="SELECT 1 AS val" /><input
+			type="submit" value="Submit">
+	</form>
+	<br>
+	<h3>Queries:</h3>
+	<p th:each="query : ${queries}">
+		<span th:text="${query}"></span>
+	</p>
+
 </body>
 </html>
