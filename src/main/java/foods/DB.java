@@ -69,13 +69,13 @@ public class DB {
 		} catch (SQLException ex) {
 			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		for(int i = 0; i < result.size(); i++) {
-			System.out.print("|");
-			for(int j = 0; j < result.get(0).size(); j++) {
-				System.out.print(result.get(i).get(j) + "|");
-			}
-			System.out.println();
-		}
+//		for(int i = 0; i < result.size(); i++) {
+//			System.out.print("|");
+//			for(int j = 0; j < result.get(0).size(); j++) {
+//				System.out.print(result.get(i).get(j) + "|");
+//			}
+//			System.out.println();
+//		}
 		return result;
 	}
 }

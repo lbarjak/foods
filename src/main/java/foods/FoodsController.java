@@ -33,8 +33,8 @@ public class FoodsController {
 
 	@PostMapping()
 	public String handlePostQueries(String query) {
-		queries.add(query);
-		System.out.println(query);
+		queries.add(db.find(query).toString());
+		System.out.println(db.find(query).toString());
 		return "redirect:/";
 	}
 
