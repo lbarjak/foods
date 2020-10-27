@@ -21,20 +21,22 @@ public class FoodsController {
 		this.db = db;
 	}
 
-	// model.addAttribute("access", db.find("SELECT 1 AS val"));
-	// model.addAttribute("access", db.find("SELECT COUNT(*) FROM contents"));
-	// model.addAttribute("access", db.find("SELECT source_id, orig_source_name,
-	// orig_content, orig_unit FROM contents LIMIT 5"));
-//		model.addAttribute("access", db.find("SELECT source_id, orig_source_name, orig_content, orig_unit"
-//				+ " FROM contents WHERE orig_food_common_name "
-//				+ "= \"Milk, whole, konventional (not organic), 3.5 % fat\" " + "AND orig_source_name IS NOT NULL"));
+	//SELECT 1 AS val
+	//SELECT COUNT(*) FROM contents
+	//SELECT source_id, orig_source_name, orig_content, orig_unit FROM contents LIMIT 5
+	/*
+	SELECT source_id, orig_source_name, orig_content, orig_unit 
+	FROM contents 
+	WHERE orig_food_common_name = "Milk, whole, konventional (not organic), 3.5 % fat" 
+	AND orig_source_name IS NOT NULL
+	*/
 
-	private List<String> queries = new ArrayList<>();
+	//private List<String> queries = new ArrayList<>();
+	ArrayList<ArrayList<String>> queries = new ArrayList<>();
 
 	@PostMapping()
 	public String handlePostQueries(String query) {
-		queries.add(db.find(query).toString());
-		System.out.println(db.find(query).toString());
+		queries = new ArrayList<>(db.find(query));
 		return "redirect:/";
 	}
 

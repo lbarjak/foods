@@ -38,13 +38,11 @@ public class DB {
 			System.out.println("" + ex);
 		}
 	}
-
-	public ArrayList<ArrayList<String>> find(String query) {
-		return print(query);
-	}
 	
-	public ArrayList<ArrayList<String>> print(String query) {
+	public ArrayList<ArrayList<String>> find(String query) {
+		
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
+		
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
